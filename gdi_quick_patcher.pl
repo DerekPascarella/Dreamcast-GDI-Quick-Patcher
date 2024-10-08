@@ -192,7 +192,7 @@ sub find_data_tracks
 	return @data_tracks;
 }
 
-# Subroutine to return the location of IP.BIN's location in a given GDI data track.
+# Subroutine to return the location of IP.BIN in a given GDI data track.
 sub find_ip_header
 {
 	# Initialize input parameter.
