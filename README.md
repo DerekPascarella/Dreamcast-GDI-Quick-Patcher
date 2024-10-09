@@ -4,7 +4,7 @@ A utility for easily applying region-free and VGA patches to a Dreamcast GDI.
 It accepts TOSEC-style GDIs as input, with support for 2352 bytes per sector BIN data tracks and 2048 bytes per sector ISO data tracks.
 
 ## Current Version
-Dreamcast GDI Quick Patcher is currently at version [1.0](https://github.com/DerekPascarella/Dreamcast-GDI-Quick-Patcher/releases/download/1.0/gdi_quick_patcher.exe).
+Dreamcast GDI Quick Patcher is currently at version [1.1](https://github.com/DerekPascarella/Dreamcast-GDI-Quick-Patcher/releases/download/1.1/gdi_quick_patcher.exe).
 
 ## Changelog
 - **Version 1.1 (2024-10-09)**
