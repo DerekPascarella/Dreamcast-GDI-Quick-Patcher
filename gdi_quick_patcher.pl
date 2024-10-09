@@ -94,6 +94,16 @@ while($response_vga !~ /^[YN]$/i)
 	chop($response_vga = lc(<STDIN>));
 }
 
+# Terminate program if no patch options were selected.
+if($response_vga eq "n" && $response_region eq "n")
+{
+	print "\nPress Enter to exit.\n";
+
+	<STDIN>;
+
+	exit;
+}
+
 # Initialize patch count to zero.
 my $patch_count = 0;
 
