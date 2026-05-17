@@ -1,3 +1,5 @@
+**NOTE:** *This program's functionality is now part of [Universal Dreamcast Patcher](https://github.com/DerekPascarella/UniversalDreamcastPatcher), which combines it with patch application, patch building, and disc image format conversion in a single cross-platform GUI. Users are encouraged to use it instead.*
+
 # Dreamcast GDI Quick Patcher
 A utility for easily applying region-free and VGA patches to a Dreamcast GDI.
 
