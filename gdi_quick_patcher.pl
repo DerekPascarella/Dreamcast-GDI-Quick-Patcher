@@ -7,6 +7,7 @@
 
 # Our modules.
 use strict;
+use File::Spec;
 use File::Basename;
 use Fcntl qw(SEEK_CUR);
 
@@ -127,7 +128,7 @@ foreach my $track (@data_tracks)
 		);
 
 		# Store location of IP.BIN's region string start.
-		my @region_string_locations = &find_ip_locations($base_folder . "\\" . $track, @byte_array_region_string);
+		my @region_string_locations = &find_ip_locations(File::Spec->catfile($base_folder, $track), @byte_array_region_string);
 
 		# IP.BIN region strings not found.
 		if(scalar(@region_string_locations) > 0)
@@ -142,7 +143,7 @@ foreach my $track (@data_tracks)
 				print "       > Patched at decimal offset " . ($region_string_location + 20) . ".\n";
 
 				# Patch data.
-				&patch_bytes($base_folder . "\\" . $track, "466F72204A4150414E2C54414957414E2C5048494C4950494E45532E0EA00900466F722055534120616E642043414E4144412E2020202020202020200EA00900466F72204555524F50452E2020202020202020202020202020202020", $region_string_location + 20);
+				&patch_bytes(File::Spec->catfile($base_folder, $track), "466F72204A4150414E2C54414957414E2C5048494C4950494E45532E0EA00900466F722055534120616E642043414E4144412E2020202020202020200EA00900466F72204555524F50452E2020202020202020202020202020202020", $region_string_location + 20);
 			
 				# Increase patch count by one.
 				$patch_count ++;
@@ -162,7 +163,7 @@ foreach my $track (@data_tracks)
 		);
 
 		# Store location of IP.BIN header start.
-		my @region_flag_locations = &find_ip_locations($base_folder . "\\" . $track, @byte_array_region_flag);
+		my @region_flag_locations = &find_ip_locations(File::Spec->catfile($base_folder, $track), @byte_array_region_flag);
 
 		# IP.BIN header found.
 		if(scalar(@region_flag_locations) > 0)
@@ -177,7 +178,7 @@ foreach my $track (@data_tracks)
 				print "       > Patched at decimal offset " . ($region_flag_location + 48) . ".\n";
 
 				# Patch data.
-				&patch_bytes($base_folder . "\\" . $track, "4A5545", $region_flag_location + 48);
+				&patch_bytes(File::Spec->catfile($base_folder, $track), "4A5545", $region_flag_location + 48);
 
 				# Increase patch count by one.
 				$patch_count ++;
@@ -201,7 +202,7 @@ foreach my $track (@data_tracks)
 		);
 
 		# Store location of IP.BIN header start.
-		my @vga_flag_locations = &find_ip_locations($base_folder . "\\" . $track, @byte_array_vga);
+		my @vga_flag_locations = &find_ip_locations(File::Spec->catfile($base_folder, $track), @byte_array_vga);
 
 		# IP.BIN header found.
 		if(scalar(@vga_flag_locations) > 0)
@@ -216,7 +217,7 @@ foreach my $track (@data_tracks)
 				print "       > Patched at decimal offset " . ($vga_flag_location + 61) . ".\n";
 
 				# Patch data.
-				&patch_bytes($base_folder . "\\" . $track, "31", $vga_flag_location + 61);
+				&patch_bytes(File::Spec->catfile($base_folder, $track), "31", $vga_flag_location + 61);
 
 				# Increase patch count by one.
 				$patch_count ++;
